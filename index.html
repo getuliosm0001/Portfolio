@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfólio | Analista & Desenvolvedor de Sistemas</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            surface: {
+              main: '#12151B',
+              card: '#181D26',
+              elevated: '#1F2633',
+              subtle: '#151921'
+            },
+            emeraldAccent: {
+              DEFAULT: '#00E599',
+              vibrant: '#10B981',
+              glow: 'rgba(0, 229, 153, 0.25)',
+              border: '#1E293B',
+              hoverBorder: 'rgba(0, 229, 153, 0.45)'
+            },
+            textLight: {
+              pure: '#FFFFFF',
+              muted: '#94A3B8',
+              dim: '#64748B'
+            }
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace']
+          },
+          boxShadow: {
+            'glow-emerald': '0 0 25px -5px rgba(0, 229, 153, 0.35)',
+            'glow-emerald-lg': '0 0 45px -8px rgba(0, 229, 153, 0.45)',
+            'subtle-card': '0 4px 20px -2px rgba(0, 0, 0, 0.5)'
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Estilização da barra de rolagem */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #12151B;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #1E293B;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #00E599;
+    }
+
+    /* Efeito de grade sutil no fundo */
+    .bg-grid-pattern {
+      background-size: 40px 40px;
+      background-image: 
+        linear-gradient(to right, rgba(30, 41, 59, 0.35) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(30, 41, 59, 0.35) 1px, transparent 1px);
+    }
+
+    /* Animação de pulso para o status de disponibilidade */
+    @keyframes pulseGlow {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.6; transform: scale(1.15); }
+    }
+    .pulse-indicator {
+      animation: pulseGlow 2.2s infinite ease-in-out;
+    }
+  </style>
+</head>
+
+<body class="bg-surface-main text-textLight-pure font-sans selection:bg-[#00E599] selection:text-black min-h-screen flex flex-col relative overflow-x-hidden">
+
+  <div class="fixed top-0 left-1/4 w-96 h-96 bg-[#00E599]/10 rounded-full blur-3xl pointer-events-none -z-10 transform -translate-x-1/2"></div>
+  <div class="fixed bottom-1/4 right-0 w-[500px] h-[500px] bg-[#10B981]/5 rounded-full blur-[120px] pointer-events-none -z-10"></div>
+
+  <header class="sticky top-0 z-50 backdrop-blur-md bg-surface-main/80 border-b border-[#1E293B] transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      <!-- Logo / Identidade -->
+      <a href="#hero" class="flex items-center gap-3 group">
+        <div class="w-10 h-10 rounded-xl bg-surface-card border border-[#1E293B] group-hover:border-[#00E599] flex items-center justify-center font-mono font-bold text-[#00E599] transition-all duration-300 shadow-sm group-hover:shadow-glow-emerald">
+          &lt;/&gt;
+        </div>
+        <div class="flex flex-col">
+          <span class="font-bold tracking-tight text-textLight-pure text-base group-hover:text-[#00E599] transition-colors">
+            DEV<span class="text-[#00E599]">.</span>SYSTEMS
+          </span>
+          <span class="text-xs font-mono text-textLight-dim">Analista & Dev</span>
+        </div>
+      </a>
+
+      <!-- Menu Desktop -->
+      <nav class="hidden md:flex items-center space-x-8 text-sm font-medium text-textLight-muted">
+        <a href="#projetos" class="hover:text-[#00E599] transition-colors py-1">Projetos</a>
+        <a href="#habilidades" class="hover:text-[#00E599] transition-colors py-1">Stack & Tech</a>
+        <a href="#sobre" class="hover:text-[#00E599] transition-colors py-1">Sobre</a>
+        <a href="#contato" class="hover:text-[#00E599] transition-colors py-1">Contato</a>
+      </nav>
+
+      <!-- Botão CTA Header -->
+      <div class="hidden sm:flex items-center gap-4">
+        <a href="#contato" class="relative inline-flex items-center justify-center px-5 py-2.5 text-sm font-semibold text-black bg-[#00E599] rounded-xl overflow-hidden transition-all duration-300 hover:bg-[#10B981] hover:shadow-glow-emerald active:scale-95">
+          <span>Iniciar Contato</span>
+        </a>
+      </div>
+
+      <!-- Botão Menu Mobile -->
+      <button id="mobileMenuBtn" aria-label="Abrir Menu" class="md:hidden p-2.5 rounded-lg border border-[#1E293B] text-textLight-muted hover:text-white hover:border-[#00E599] transition-all">
+        <svg id="hamburgerIcon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Dropdown Mobile -->
+    <div id="mobileMenu" class="hidden md:hidden border-b border-[#1E293B] bg-surface-card px-4 pt-3 pb-6 space-y-3">
+      <a href="#projetos" class="block px-3 py-2 text-base font-medium text-textLight-muted hover:text-[#00E599] hover:bg-surface-elevated rounded-lg">Projetos</a>
+      <a href="#habilidades" class="block px-3 py-2 text-base font-medium text-textLight-muted hover:text-[#00E599] hover:bg-surface-elevated rounded-lg">Stack & Tech</a>
+      <a href="#sobre" class="block px-3 py-2 text-base font-medium text-textLight-muted hover:text-[#00E599] hover:bg-surface-elevated rounded-lg">Sobre Mim</a>
+      <a href="#contato" class="block px-3 py-2 text-base font-medium text-textLight-muted hover:text-[#00E599] hover:bg-surface-elevated rounded-lg">Contato</a>
+      <div class="pt-2">
+        <a href="#contato" class="w-full text-center block px-4 py-2.5 text-sm font-semibold text-black bg-[#00E599] rounded-xl hover:bg-[#10B981]">Falar Comigo</a>
+      </div>
+    </div>
+  </header>
+
+  <section id="hero" class="relative pt-12 pb-20 md:pt-24 md:pb-32 bg-grid-pattern overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-12">
+        
+        <!-- Conteúdo Principal Hero -->
+        <div class="max-w-3xl space-y-6">
+          <!-- Status Badge -->
+          <div class="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-surface-card border border-[#1E293B] text-xs font-mono text-textLight-muted">
+            <span class="w-2 h-2 rounded-full bg-[#00E599] pulse-indicator"></span>
+            <span>Disponível para novos projetos & parcerias</span>
+          </div>
+
+          <!-- Título Hero -->
+          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-tight">
+            Construindo sistemas <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#00E599] to-[#10B981]">escaláveis</span>, rápidos e inteligentes.
+          </h1>
+
+          <!-- Subtítulo -->
+          <p class="text-lg sm:text-xl text-textLight-muted font-normal leading-relaxed max-w-2xl">
+            Olá! Sou <strong class="text-white font-medium">Analista e Desenvolvedor de Sistemas</strong>. Transformo requisitos complexos em arquiteturas limpas, automações eficientes e interfaces fluidas de ponta a ponta.
+          </p>
+
+          <!-- Ações e Botões CTA -->
+          <div class="flex flex-wrap items-center gap-4 pt-2">
+            <a href="#projetos" class="px-7 py-3.5 rounded-xl font-semibold text-black bg-[#00E599] hover:bg-[#10B981] transition-all duration-300 shadow-glow-emerald flex items-center gap-2 group">
+              <span>Explorar Projetos</span>
+              <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+              </svg>
+            </a>
+
+            <a href="#contato" class="px-7 py-3.5 rounded-xl font-semibold text-white bg-surface-card hover:bg-surface-elevated border border-[#1E293B] hover:border-[#00E599] transition-all duration-300">
+              Fale Comigo
+            </a>
+          </div>
+
+          <!-- Redes Sociais Rápidas -->
+          <div class="pt-6 flex items-center gap-6 text-sm text-textLight-muted">
+            <span class="font-mono text-xs text-textLight-dim uppercase tracking-wider">Conecte-se:</span>
+            <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="hover:text-[#00E599] transition-colors flex items-center gap-1.5">
+              <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+              <span>GitHub</span>
+            </a>
+            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="hover:text-[#00E599] transition-colors flex items-center gap-1.5">
+              <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+              <span>LinkedIn</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Card de Terminal/Resumo Executivo -->
+        <div class="lg:w-[420px] w-full bg-surface-card border border-[#1E293B] rounded-2xl p-6 shadow-subtle-card relative overflow-hidden">
+          <div class="flex items-center justify-between pb-4 border-b border-[#1E293B] mb-5">
+            <div class="flex items-center space-x-2">
+              <span class="w-3 h-3 rounded-full bg-[#1E293B]"></span>
+              <span class="w-3 h-3 rounded-full bg-[#1E293B]"></span>
+              <span class="w-3 h-3 rounded-full bg-[#00E599]/60"></span>
+            </div>
+            <span class="text-xs font-mono text-textLight-dim">dev_profile.sh</span>
+          </div>
+
+          <div class="font-mono text-xs space-y-3">
+            <p class="text-textLight-dim">// Resumo de Atuação</p>
+            <p><span class="text-[#00E599]">$</span> role = <span class="text-white">"Systems Analyst & Dev"</span>;</p>
+            <p><span class="text-[#00E599]">$</span> core = [<span class="text-white">"Fullstack"</span>, <span class="text-white">"Database Modeling"</span>, <span class="text-white">"Automation"</span>];</p>
+            <p><span class="text-[#00E599]">$</span> philosophy = <span class="text-emerald-400">"Robustez, Clean Code e Performance"</span>;</p>
+            <p><span class="text-[#00E599]">$</span> status = <span class="text-emerald-400">"Pronto para resolver gargalos"</span>;</p>
+          </div>
+
+          <div class="mt-6 pt-5 border-t border-[#1E293B] flex items-center justify-between text-xs text-textLight-muted">
+            <span class="flex items-center gap-1.5 font-mono">
+              <svg class="w-4 h-4 text-[#00E599]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+              </svg>
+              Sistemas em Produção
+            </span>
+            <span class="font-mono text-[#00E599]">100% Uptime</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="habilidades" class="py-20 border-t border-[#1E293B] bg-surface-subtle relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-2xl mx-auto mb-16">
+        <span class="text-xs font-mono font-bold tracking-widest text-[#00E599] uppercase">Competências Técnicas</span>
+        <h2 class="text-3xl font-extrabold text-white mt-2">Tecnologias & Arquiteturas</h2>
+        <p class="text-textLight-muted mt-3 text-sm sm:text-base">
+          Ferramentas e linguagens que domino para entregar softwares resilientes, escaláveis e prontos para produção.
+        </p>
+      </div>
+
+      <!-- Grid de Habilidades -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        
+        <!-- Card: Front-end -->
+        <div class="bg-surface-card border border-[#1E293B] hover:border-[#00E599]/60 rounded-2xl p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-glow-emerald group">
+          <div class="w-12 h-12 rounded-xl bg-surface-elevated border border-[#1E293B] text-[#00E599] flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+            </svg>
+          </div>
+          <h3 class="text-lg font-bold text-white mb-2">Front-end Moderno</h3>
+          <p class="text-textLight-muted text-xs mb-4 leading-relaxed">Interfaces fluidas, alta responsividade e excelente experiência do usuário (UX).</p>
+          <div class="flex flex-wrap gap-2">
+            <span class="px-2.5 py-1 text-xs font-mono rounded-md bg-surface-elevated border border-[#1E293B] text-textLight-muted">React</span>
+            <span class="px-2.5 py-1 text-xs font-mono rounded-md bg-surface-elevated border border-[#1E293B] text-textLight-muted">TypeScript</span>
+            <span class="px-2.5 py-1 text-xs font-mono rounded-md bg-surface-elevated border border-[#1E293B] text-textLight-muted">Tailwind CSS</span>
+            <span class="px-2.5 py-1 text-xs font-mono rounded-md bg-surface-elevated border border-[#1E293B] text-textLight-muted">Next.js</span>
+            <span class="px-2.5 py-1 text-xs font-mono rounded-md bg-surface-elevated border border-[#1E293B] text-textLight-muted">HTML5/CSS3</span>
+          </div>
+        </div>
+
+        <!-- Card: Back-end & Bancos -->
+        <div class="bg-surface-card border border-[#1E293B] hover:border-[#00E599]/60 rounded-2xl p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-glow-emerald group">
+          <div class="w-12 h-12 rounded-xl bg-surface-elevated border border-[#1E293B] text-[#00E599] flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4"></path>
+            </svg>
+          </div>
+          <h3 class="text-lg font-bold text-white mb-2">Back-end & Dados</h3>
+          <p class="text-textLight-muted text-xs mb-4 leading-relaxed">APIs RESTful seguras, modelagem relacional e processamento assíncrono.</p>
+          <div class="flex flex-wrap gap-2">
+            <span class="px-2.5 py-1 text-xs font-mono rounded-md bg-surface-elevated border border-[#1E293B] text-textLight-muted">Node.js</span>
+            <span class="px-2.5 py-1 text-xs font-mono rounded-md bg-surface-elevated border border-[#1E293B] text-textLight-muted">Python</span>
+            <span class="px-2.5 py-1 text-xs font-mono rounded-md bg-surface-elevated border border-[#1E293B] text-textLight-muted">PostgreSQL</span>
+            <span class="px-2.5 py-1 text-xs font-mono rounded-md bg-surface-elevated border border-[#1E293B] text-textLight-muted">MySQL</span>
+            <span class="px-2.5 py-1 text-xs font-mono rounded-md bg-surface-elevated border border-[#1E293B] text-textLight-muted">Prisma / ORM</span>
+          </div>
+        </div>
+
+        <!-- Card: Automação & DevOps -->
+        <div class="bg-surface-card border border-[#1E293B] hover:border-[#00E599]/60 rounded-2xl p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-glow-emerald group">
+          <div class="w-12 h-12 rounded-xl bg-surface-elevated border border-[#1E293B] text-[#00E599] flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+            </svg>
+          </div>
+          <h3 class="text-lg font-bold text-white mb-2">Automação & Cloud</h3>
+          <p class="text-textLight-muted text-xs mb-4 leading-relaxed">Scripts de automação, pipelines de integração e deploy contínuo.</p>
+          <div class="flex flex-wrap gap-2">
+            <span class="px-2.5 py-1 text-xs font-mono rounded-md bg-surface-elevated border border-[#1E293B] text-textLight-muted">Docker</span>
+            <span class="px-2.5 py-1 text-xs font-mono rounded-md bg-surface-elevated border border-[#1E293B] text-textLight-muted">CI/CD</span>
+            <span class="px-2.5 py-1 text-xs font-mono rounded-md bg-surface-elevated border border-[#1E293B] text-textLight-muted">Git / GitHub</span>
+            <span class="px-2.5 py-1 text-xs font-mono rounded-md bg-surface-elevated border border-[#1E293B] text-textLight-muted">Shell Script</span>
+            <span class="px-2.5 py-1 text-xs font-mono rounded-md bg-surface-elevated border border-[#1E293B] text-textLight-muted">Postman</span>
+          </div>
+        </div>
+
+        <!-- Card: Análise & Arquitetura -->
+        <div class="bg-surface-card border border-[#1E293B] hover:border-[#00E599]/60 rounded-2xl p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-glow-emerald group">
+          <div class="w-12 h-12 rounded-xl bg-surface-elevated border border-[#1E293B] text-[#00E599] flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
+            </svg>
+          </div>
+          <h3 class="text-lg font-bold text-white mb-2">Análise de Sistemas</h3>
+          <p class="text-textLight-muted text-xs mb-4 leading-relaxed">Engenharia de requisitos, diagramação UML, modelagem e Clean Architecture.</p>
+          <div class="flex flex-wrap gap-2">
+            <span class="px-2.5 py-1 text-xs font-mono rounded-md bg-surface-elevated border border-[#1E293B] text-textLight-muted">Clean Arch</span>
+            <span class="px-2.5 py-1 text-xs font-mono rounded-md bg-surface-elevated border border-[#1E293B] text-textLight-muted">UML / BPMN</span>
+            <span class="px-2.5 py-1 text-xs font-mono rounded-md bg-surface-elevated border border-[#1E293B] text-textLight-muted">Scrum / Agile</span>
+            <span class="px-2.5 py-1 text-xs font-mono rounded-md bg-surface-elevated border border-[#1E293B] text-textLight-muted">Linux Server</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="projetos" class="py-24 border-t border-[#1E293B] relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+        <div>
+          <span class="text-xs font-mono font-bold tracking-widest text-[#00E599] uppercase">Portfólio em Ação</span>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-2">Projetos em Destaque</h2>
+          <p class="text-textLight-muted text-sm sm:text-base mt-2 max-w-xl">
+            Soluções completas desenhadas e codificadas para resolver problemas reais de negócio.
+          </p>
+        </div>
+
+        <!-- Filtros Rápidos -->
+        <div class="flex flex-wrap items-center gap-2 p-1.5 bg-surface-card border border-[#1E293B] rounded-xl self-start">
+          <button onclick="filterProjects('all')" class="filter-btn active-filter px-3.5 py-1.5 text-xs font-medium rounded-lg text-white bg-surface-elevated transition-all" data-category="all">Todos</button>
+          <button onclick="filterProjects('fullstack')" class="filter-btn px-3.5 py-1.5 text-xs font-medium rounded-lg text-textLight-muted hover:text-white transition-all" data-category="fullstack">Fullstack</button>
+          <button onclick="filterProjects('backend')" class="filter-btn px-3.5 py-1.5 text-xs font-medium rounded-lg text-textLight-muted hover:text-white transition-all" data-category="backend">Back-end & Dados</button>
+          <button onclick="filterProjects('automacao')" class="filter-btn px-3.5 py-1.5 text-xs font-medium rounded-lg text-textLight-muted hover:text-white transition-all" data-category="automacao">Automação</button>
+        </div>
+      </div>
+
+      <!-- Grid de Projetos -->
+      <div id="projectsGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        
+        <!-- Projeto 1: Fullstack / ERP de Gestão -->
+        <div class="project-card group bg-surface-card border border-[#1E293B] hover:border-[#00E599]/60 rounded-2xl overflow-hidden transition-all duration-300 flex flex-col hover:shadow-glow-emerald" data-category="fullstack">
+          <!-- Mock Header Visual -->
+          <div class="h-48 bg-surface-elevated border-b border-[#1E293B] p-5 flex flex-col justify-between relative overflow-hidden group-hover:bg-[#1a2230] transition-colors">
+            <div class="flex items-center justify-between">
+              <span class="px-2.5 py-1 text-xs font-mono font-medium rounded-full bg-[#00E599]/10 text-[#00E599] border border-[#00E599]/20">ERP & Gestão</span>
+              <span class="text-xs font-mono text-textLight-dim">01 // Sistema Web</span>
+            </div>
+            <!-- Ícone/Mockup Abstrato -->
+            <div class="flex items-center justify-center my-auto">
+              <div class="w-16 h-16 rounded-2xl bg-surface-main border border-[#1E293B] group-hover:border-[#00E599] flex items-center justify-center text-[#00E599] transition-all transform group-hover:scale-105">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M16 8v8m-4-5v5m-4-2v2m-2 4h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                </svg>
+              </div>
+            </div>
+            <div class="text-xs font-mono text-textLight-muted text-right">Dashboard Financeiro</div>
+          </div>
+
+          <!-- Conteúdo -->
+          <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+            <div>
+              <h3 class="text-xl font-bold text-white group-hover:text-[#00E599] transition-colors">Sistema Integrado de Gestão Empresarial</h3>
+              <p class="text-textLight-muted text-xs sm:text-sm mt-2 leading-relaxed">
+                Plataforma corporativa com controle de fluxo de caixa, relatórios analíticos em tempo real e níveis granulares de permissão de usuários.
+              </p>
+            </div>
+
+            <!-- Desafio & Solução -->
+            <div class="bg-surface-main/60 p-3 rounded-xl border border-[#1E293B] text-xs font-mono text-textLight-muted">
+              <span class="text-[#00E599] font-bold">Solução:</span> Arquitetura modular com caching Redis, reduzindo tempo de resposta de queries pesadas em 75%.
+            </div>
+
+            <!-- Tags -->
+            <div class="flex flex-wrap gap-1.5 pt-1">
+              <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-surface-elevated text-textLight-muted">React</span>
+              <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-surface-elevated text-textLight-muted">Node.js</span>
+              <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-surface-elevated text-textLight-muted">PostgreSQL</span>
+              <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-surface-elevated text-textLight-muted">Tailwind</span>
+            </div>
+
+            <!-- Botões de Ação -->
+            <div class="flex items-center gap-3 pt-3 border-t border-[#1E293B]">
+              <a href="#" class="flex-1 py-2 text-center text-xs font-semibold rounded-lg bg-[#00E599] text-black hover:bg-[#10B981] transition-all">Demo Online</a>
+              <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="px-3.5 py-2 text-xs font-medium rounded-lg bg-surface-elevated text-white border border-[#1E293B] hover:border-[#00E599] transition-all flex items-center justify-center">
+                GitHub
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Projeto 2: Back-end / API de Microserviços -->
+        <div class="project-card group bg-surface-card border border-[#1E293B] hover:border-[#00E599]/60 rounded-2xl overflow-hidden transition-all duration-300 flex flex-col hover:shadow-glow-emerald" data-category="backend">
+          <!-- Mock Header Visual -->
+          <div class="h-48 bg-surface-elevated border-b border-[#1E293B] p-5 flex flex-col justify-between relative overflow-hidden group-hover:bg-[#1a2230] transition-colors">
+            <div class="flex items-center justify-between">
+              <span class="px-2.5 py-1 text-xs font-mono font-medium rounded-full bg-[#00E599]/10 text-[#00E599] border border-[#00E599]/20">API RESTful</span>
+              <span class="text-xs font-mono text-textLight-dim">02 // Microsserviço</span>
+            </div>
+            <div class="flex items-center justify-center my-auto">
+              <div class="w-16 h-16 rounded-2xl bg-surface-main border border-[#1E293B] group-hover:border-[#00E599] flex items-center justify-center text-[#00E599] transition-all transform group-hover:scale-105">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                </svg>
+              </div>
+            </div>
+            <div class="text-xs font-mono text-textLight-muted text-right">High Performance Gateway</div>
+          </div>
+
+          <!-- Conteúdo -->
+          <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+            <div>
+              <h3 class="text-xl font-bold text-white group-hover:text-[#00E599] transition-colors">API de Autenticação & Pagamentos</h3>
+              <p class="text-textLight-muted text-xs sm:text-sm mt-2 leading-relaxed">
+                Microsserviço de autenticação distribuída (JWT/OAuth2), controle de rate limit, e webhook listener para transações de e-commerce.
+              </p>
+            </div>
+
+            <!-- Desafio & Solução -->
+            <div class="bg-surface-main/60 p-3 rounded-xl border border-[#1E293B] text-xs font-mono text-textLight-muted">
+              <span class="text-[#00E599] font-bold">Solução:</span> Documentação interativa via Swagger/OpenAPI e arquitetura limpa orientada a domínio (DDD).
+            </div>
+
+            <!-- Tags -->
+            <div class="flex flex-wrap gap-1.5 pt-1">
+              <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-surface-elevated text-textLight-muted">Node.js</span>
+              <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-surface-elevated text-textLight-muted">TypeScript</span>
+              <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-surface-elevated text-textLight-muted">Docker</span>
+              <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-surface-elevated text-textLight-muted">Redis</span>
+            </div>
+
+            <!-- Botões de Ação -->
+            <div class="flex items-center gap-3 pt-3 border-t border-[#1E293B]">
+              <a href="#" class="flex-1 py-2 text-center text-xs font-semibold rounded-lg bg-[#00E599] text-black hover:bg-[#10B981] transition-all">Docs / Swagger</a>
+              <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="px-3.5 py-2 text-xs font-medium rounded-lg bg-surface-elevated text-white border border-[#1E293B] hover:border-[#00E599] transition-all flex items-center justify-center">
+                GitHub
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Projeto 3: Automação / Pipeline de Dados -->
+        <div class="project-card group bg-surface-card border border-[#1E293B] hover:border-[#00E599]/60 rounded-2xl overflow-hidden transition-all duration-300 flex flex-col hover:shadow-glow-emerald" data-category="automacao">
+          <!-- Mock Header Visual -->
+          <div class="h-48 bg-surface-elevated border-b border-[#1E293B] p-5 flex flex-col justify-between relative overflow-hidden group-hover:bg-[#1a2230] transition-colors">
+            <div class="flex items-center justify-between">
+              <span class="px-2.5 py-1 text-xs font-mono font-medium rounded-full bg-[#00E599]/10 text-[#00E599] border border-[#00E599]/20">Automação & ETL</span>
+              <span class="text-xs font-mono text-textLight-dim">03 // Bot & Scripts</span>
+            </div>
+            <div class="flex items-center justify-center my-auto">
+              <div class="w-16 h-16 rounded-2xl bg-surface-main border border-[#1E293B] group-hover:border-[#00E599] flex items-center justify-center text-[#00E599] transition-all transform group-hover:scale-105">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                </svg>
+              </div>
+            </div>
+            <div class="text-xs font-mono text-textLight-muted text-right">Processamento Contínuo</div>
+          </div>
+
+          <!-- Conteúdo -->
+          <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+            <div>
+              <h3 class="text-xl font-bold text-white group-hover:text-[#00E599] transition-colors">Pipeline de Automação & Web Scraping</h3>
+              <p class="text-textLight-muted text-xs sm:text-sm mt-2 leading-relaxed">
+                Coletor automatizado para monitoramento de precificação e inteligência competitiva com exportação programada em banco de dados e relatórios.
+              </p>
+            </div>
+
+            <!-- Desafio & Solução -->
+            <div class="bg-surface-main/60 p-3 rounded-xl border border-[#1E293B] text-xs font-mono text-textLight-muted">
+              <span class="text-[#00E599] font-bold">Solução:</span> Execução periódica em background via containers com tolerância a falhas e re-tentativas.
+            </div>
+
+            <!-- Tags -->
+            <div class="flex flex-wrap gap-1.5 pt-1">
+              <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-surface-elevated text-textLight-muted">Python</span>
+              <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-surface-elevated text-textLight-muted">BeautifulSoup</span>
+              <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-surface-elevated text-textLight-muted">PostgreSQL</span>
+              <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-surface-elevated text-textLight-muted">Bash</span>
+            </div>
+
+            <!-- Botões de Ação -->
+            <div class="flex items-center gap-3 pt-3 border-t border-[#1E293B]">
+              <a href="#" class="flex-1 py-2 text-center text-xs font-semibold rounded-lg bg-[#00E599] text-black hover:bg-[#10B981] transition-all">Ver Relatório</a>
+              <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="px-3.5 py-2 text-xs font-medium rounded-lg bg-surface-elevated text-white border border-[#1E293B] hover:border-[#00E599] transition-all flex items-center justify-center">
+                GitHub
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <section id="sobre" class="py-24 border-t border-[#1E293B] bg-surface-subtle">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        
+        <!-- Coluna Esquerda: Texto Sobre -->
+        <div class="lg:col-span-7 space-y-6">
+          <span class="text-xs font-mono font-bold tracking-widest text-[#00E599] uppercase">Minha Trajetória</span>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-white">
+            Aliando visão analítica de processos com código de alto rendimento.
+          </h2>
+          
+          <div class="space-y-4 text-textLight-muted text-sm sm:text-base leading-relaxed">
+            <p>
+              Como <strong class="text-white">Analista e Desenvolvedor de Sistemas</strong>, acredito que um bom software nasce antes de qualquer linha de código: começa no mapeamento claro das regras de negócio, na escolha consciente da arquitetura e na eliminação de complexidades desnecessárias.
+            </p>
+            <p>
+              Minha experiência abrange desde a concepção e modelagem de bancos de dados até o desenvolvimento de sistemas ponta a ponta, integrações via APIs e pipelines de automação para acelerar entregas.
+            </p>
+          </div>
+
+          <!-- Pilares de Atuação -->
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-4">
+            <div class="p-4 rounded-xl bg-surface-card border border-[#1E293B]">
+              <div class="text-[#00E599] font-mono text-xl font-bold mb-1">01</div>
+              <h4 class="text-white font-semibold text-sm">Arquitetura Limpa</h4>
+              <p class="text-xs text-textLight-dim mt-1">Código legível, de fácil manutenção e modularizado.</p>
+            </div>
+
+            <div class="p-4 rounded-xl bg-surface-card border border-[#1E293B]">
+              <div class="text-[#00E599] font-mono text-xl font-bold mb-1">02</div>
+              <h4 class="text-white font-semibold text-sm">Foco em Performance</h4>
+              <p class="text-xs text-textLight-dim mt-1">Queries otimizadas e tempo de resposta mínimo.</p>
+            </div>
+
+            <div class="p-4 rounded-xl bg-surface-card border border-[#1E293B]">
+              <div class="text-[#00E599] font-mono text-xl font-bold mb-1">03</div>
+              <h4 class="text-white font-semibold text-sm">Pragmatismo</h4>
+              <p class="text-xs text-textLight-dim mt-1">Foco na entrega de valor real ao usuário final.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Coluna Direita: Painel Interativo de Informações -->
+        <div class="lg:col-span-5">
+          <div class="bg-surface-card border border-[#1E293B] rounded-2xl p-6 sm:p-8 relative overflow-hidden shadow-subtle-card">
+            <div class="text-xs font-mono text-textLight-dim mb-4">// Dados & Contato Direto</div>
+            
+            <ul class="space-y-4 text-sm">
+              <li class="flex items-center justify-between pb-3 border-b border-[#1E293B]">
+                <span class="text-textLight-muted">Especialidade:</span>
+                <span class="font-medium text-white">Fullstack & Engenharia de Dados</span>
+              </li>
+              <li class="flex items-center justify-between pb-3 border-b border-[#1E293B]">
+                <span class="text-textLight-muted">Localização:</span>
+                <span class="font-medium text-white">Brasil (Atuação Remota / Híbrida)</span>
+              </li>
+              <li class="flex items-center justify-between pb-3 border-b border-[#1E293B]">
+                <span class="text-textLight-muted">Metodologias:</span>
+                <span class="font-mono text-white text-xs">Scrum, Kanban, CI/CD</span>
+              </li>
+              <li class="flex items-center justify-between pb-3 border-b border-[#1E293B]">
+                <span class="text-textLight-muted">Disponibilidade:</span>
+                <span class="text-[#00E599] font-medium flex items-center gap-1.5">
+                  <span class="w-2 h-2 rounded-full bg-[#00E599]"></span> Aberto a propostas
+                </span>
+              </li>
+            </ul>
+
+            <!-- Botão de Cópia de Email com 1 Clique -->
+            <div class="mt-6 pt-6 border-t border-[#1E293B]">
+              <button onclick="copyEmail()" id="copyEmailBtn" class="w-full py-3 px-4 rounded-xl bg-surface-elevated border border-[#1E293B] hover:border-[#00E599] text-textLight-pure font-mono text-xs flex items-center justify-center gap-2 transition-all">
+                <svg class="w-4 h-4 text-[#00E599]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                </svg>
+                <span id="copyEmailText">Copiar E-mail: contato@meudominio.com</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="contato" class="py-24 border-t border-[#1E293B] relative">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center mb-12">
+        <span class="text-xs font-mono font-bold tracking-widest text-[#00E599] uppercase">Vamos Conversar</span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-2">Iniciar um Projeto</h2>
+        <p class="text-textLight-muted text-sm sm:text-base mt-2">
+          Tem um desafio técnico, uma oportunidade ou quer trocar uma ideia sobre sistemas? Envie uma mensagem!
+        </p>
+      </div>
+
+      <!-- Formulário Moderno -->
+      <div class="bg-surface-card border border-[#1E293B] rounded-2xl p-6 sm:p-10 shadow-glow-emerald">
+        <form id="contactForm" onsubmit="handleFormSubmit(event)" class="space-y-6">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <div>
+              <label for="name" class="block text-xs font-mono text-textLight-muted mb-2">SEU NOME</label>
+              <input type="text" id="name" required placeholder="Ex: Maria Silva" class="w-full px-4 py-3 rounded-xl bg-surface-main border border-[#1E293B] text-white placeholder-textLight-dim focus:outline-none focus:border-[#00E599] transition-colors text-sm" />
+            </div>
+
+            <div>
+              <label for="email" class="block text-xs font-mono text-textLight-muted mb-2">SEU E-MAIL</label>
+              <input type="email" id="email" required placeholder="Ex: maria@empresa.com" class="w-full px-4 py-3 rounded-xl bg-surface-main border border-[#1E293B] text-white placeholder-textLight-dim focus:outline-none focus:border-[#00E599] transition-colors text-sm" />
+            </div>
+          </div>
+
+          <div>
+            <label for="subject" class="block text-xs font-mono text-textLight-muted mb-2">ASSUNTO / TIPO DE PROJETO</label>
+            <input type="text" id="subject" required placeholder="Ex: Desenvolvimento de API / Novo Sistema Web" class="w-full px-4 py-3 rounded-xl bg-surface-main border border-[#1E293B] text-white placeholder-textLight-dim focus:outline-none focus:border-[#00E599] transition-colors text-sm" />
+          </div>
+
+          <div>
+            <label for="message" class="block text-xs font-mono text-textLight-muted mb-2">MENSAGEM OU ESCOPO</label>
+            <textarea id="message" rows="4" required placeholder="Conte brevemente sobre os objetivos, tecnologias esperadas ou escopo do projeto..." class="w-full px-4 py-3 rounded-xl bg-surface-main border border-[#1E293B] text-white placeholder-textLight-dim focus:outline-none focus:border-[#00E599] transition-colors text-sm"></textarea>
+          </div>
+
+          <!-- Feedback Box -->
+          <div id="formFeedback" class="hidden p-4 rounded-xl text-xs font-mono"></div>
+
+          <button type="submit" id="submitBtn" class="w-full py-4 rounded-xl font-bold text-black bg-[#00E599] hover:bg-[#10B981] transition-all duration-300 shadow-glow-emerald flex items-center justify-center gap-2">
+            <span>Enviar Mensagem</span>
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path>
+            </svg>
+          </button>
+        </form>
+      </div>
+
+    </div>
+  </section>
+
+  <footer class="mt-auto border-t border-[#1E293B] bg-surface-main py-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-6">
+      
+      <!-- Informações Legais / Copyright -->
+      <div class="flex items-center space-x-3">
+        <div class="w-8 h-8 rounded-lg bg-surface-card border border-[#1E293B] flex items-center justify-center font-mono text-[#00E599] text-xs">
+          &lt;/&gt;
+        </div>
+        <p class="text-xs text-textLight-muted">
+          &copy; <span id="currentYear"></span> Dev & Systems. Desenvolvido com foco em alta performance.
+        </p>
+      </div>
+
+      <!-- Links Secundários -->
+      <div class="flex items-center space-x-6 text-xs font-mono text-textLight-dim">
+        <a href="#hero" class="hover:text-[#00E599] transition-colors">Voltar ao topo ↑</a>
+        <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="hover:text-[#00E599] transition-colors">GitHub</a>
+        <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="hover:text-[#00E599] transition-colors">LinkedIn</a>
+      </div>
+
+    </div>
+  </footer>
+
+  <script>
+    // Ano dinâmico no footer
+    document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+    // Menu Mobile toggle
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+
+    mobileMenuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+
+    // Fechar menu mobile ao clicar em um link
+    document.querySelectorAll('#mobileMenu a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+      });
+    });
+
+    // Filtro interativo de projetos
+    function filterProjects(category) {
+      const cards = document.querySelectorAll('.project-card');
+      const buttons = document.querySelectorAll('.filter-btn');
+
+      // Atualizar botões visuais
+      buttons.forEach(btn => {
+        if (btn.getAttribute('data-category') === category) {
+          btn.classList.add('bg-surface-elevated', 'text-white');
+          btn.classList.remove('text-textLight-muted');
+        } else {
+          btn.classList.remove('bg-surface-elevated', 'text-white');
+          btn.classList.add('text-textLight-muted');
+        }
+      });
+
+      // Filtrar cards
+      cards.forEach(card => {
+        if (category === 'all' || card.getAttribute('data-category') === category) {
+          card.classList.remove('hidden');
+        } else {
+          card.classList.add('hidden');
+        }
+      });
+    }
+
+    // Copiar email para a área de transferência
+    function copyEmail() {
+      const emailToCopy = "contato@meudominio.com";
+      const dummyInput = document.createElement("input");
+      document.body.appendChild(dummyInput);
+      dummyInput.value = emailToCopy;
+      dummyInput.select();
+      
+      try {
+        document.execCommand('copy');
+        const textElement = document.getElementById('copyEmailText');
+        const originalText = textElement.innerText;
+        textElement.innerText = "E-mail copiado com sucesso!";
+        textElement.parentElement.classList.add('border-[#00E599]');
+
+        setTimeout(() => {
+          textElement.innerText = originalText;
+          textElement.parentElement.classList.remove('border-[#00E599]');
+        }, 3000);
+      } catch (err) {
+        console.error('Erro ao copiar', err);
+      } finally {
+        document.body.removeChild(dummyInput);
+      }
+    }
+
+    // Envio do formulário sem alert()
+    function handleFormSubmit(event) {
+      event.preventDefault();
+      const feedback = document.getElementById('formFeedback');
+      const submitBtn = document.getElementById('submitBtn');
+      const name = document.getElementById('name').value;
+
+      // Animação do botão
+      submitBtn.disabled = true;
+      submitBtn.classList.add('opacity-75');
+      submitBtn.innerText = "Enviando mensagem...";
+
+      setTimeout(() => {
+        submitBtn.disabled = false;
+        submitBtn.classList.remove('opacity-75');
+        submitBtn.innerHTML = `
+          <span>Mensagem Enviada!</span>
+          <svg class="w-4 h-4 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+          </svg>
+        `;
+
+        feedback.classList.remove('hidden');
+        feedback.className = "p-4 rounded-xl text-xs font-mono bg-surface-main border border-[#00E599] text-[#00E599]";
+        feedback.innerText = `Obrigado pelo contato, ${name}! Recebi seus dados e responderei o mais rápido possível.`;
+
+        // Limpar formulário
+        document.getElementById('contactForm').reset();
+
+        setTimeout(() => {
+          submitBtn.innerHTML = `
+            <span>Enviar Mensagem</span>
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path>
+            </svg>
+          `;
+        }, 4000);
+      }, 1000);
+    }
+  </script>
+</body>
+</html>
