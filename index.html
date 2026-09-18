@@ -54,12 +54,6 @@
       background-color: #12151B;
       color: #94A3B8;
     }
-    .neon-glow {
-      box-shadow: 0 0 25px rgba(0, 229, 153, 0.15);
-    }
-    .neon-glow-hover:hover {
-      box-shadow: 0 0 30px rgba(0, 229, 153, 0.3);
-    }
   </style>
 </head>
 <body class="min-h-screen selection:bg-emeraldAccent selection:text-surface-main font-sans antialiased">
@@ -67,13 +61,13 @@
   <!-- ================= NAVBAR ================= -->
   <nav class="fixed top-0 left-0 right-0 z-50 bg-surface-main/85 backdrop-blur-md border-b border-surface-card/80">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-      <a href="#hero" class="flex items-center gap-3 group">
+      <a href="#sobre" class="flex items-center gap-3 group">
         <div class="w-10 h-10 rounded-xl bg-surface-card border border-emeraldAccent-border flex items-center justify-center group-hover:border-emeraldAccent transition-colors">
           <span class="font-mono font-bold text-emeraldAccent text-lg">&lt;/&gt;</span>
         </div>
         <div class="flex flex-col">
           <span class="text-white font-bold tracking-tight text-base group-hover:text-emeraldAccent transition-colors">Getúlio S. Maciel</span>
-          <span class="text-xs text-textLight-dim font-mono">Analista & Dev</span>
+          <span class="text-xs text-textLight-dim font-mono">Analista &amp; Dev</span>
         </div>
       </a>
 
@@ -106,7 +100,7 @@
 
   <main class="pt-28 space-y-28">
 
-    <!-- ================= HERO / SOBRE MIM (FOTO GRANDE & INFORMAÇÕES) ================= -->
+    <!-- ================= HERO / SOBRE MIM ================= -->
     <section id="sobre" class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-8">
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
         
@@ -115,18 +109,14 @@
           <div class="relative group">
             <div class="absolute -inset-1.5 bg-gradient-to-tr from-emeraldAccent to-emeraldAccent-vibrant rounded-3xl blur-md opacity-30 group-hover:opacity-60 transition duration-500"></div>
             
-            <!-- Moldura da Foto -->
             <div class="relative w-64 h-64 sm:w-80 sm:h-80 md:w-96 md:h-96 rounded-2xl overflow-hidden border-2 border-emeraldAccent-border bg-surface-card shadow-2xl flex items-center justify-center">
-              <!-- Substitua pelo caminho da sua foto local ou link -->
               <img 
                 src="foto-perfil.jpeg" 
                 alt="Foto de Getúlio Silva Maciel" 
                 class="w-full h-full object-cover object-center"
-                onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=800&q=80';"
               />
             </div>
 
-            <!-- Badge de Status -->
             <div class="absolute -bottom-4 left-1/2 -translate-x-1/2 bg-surface-card/95 border border-emeraldAccent-border px-4 py-2 rounded-full shadow-lg flex items-center gap-2.5 backdrop-blur-sm whitespace-nowrap">
               <span class="w-2.5 h-2.5 rounded-full bg-emeraldAccent animate-ping"></span>
               <span class="text-xs font-mono text-white font-medium">Disponível para novos projetos</span>
@@ -150,7 +140,7 @@
             Graduado em <strong class="text-white">Análise e Desenvolvimento de Sistemas</strong>. Focado na criação de aplicações web modernas, automação de fluxos de dados, arquitetura de sistemas e infraestrutura confiável. Transformo problemas complexos em softwares funcionais e de alta performance.
           </p>
 
-          <!-- Dados Pessoais / Ficha Rápida -->
+          <!-- Ficha Rápida -->
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 py-2 font-mono text-xs sm:text-sm">
             <div class="p-3.5 rounded-xl bg-surface-card border border-emeraldAccent-border flex items-center gap-3">
               <i data-lucide="map-pin" class="text-emeraldAccent w-5 h-5 flex-shrink-0"></i>
@@ -160,13 +150,14 @@
               </div>
             </div>
 
-            <div class="p-3.5 rounded-xl bg-surface-card border border-emeraldAccent-border flex items-center gap-3">
-              <i data-lucide="graduation-cap" class="text-emeraldAccent w-5 h-5 flex-shrink-0"></i>
+            <!-- Card de Formação com Link Direto para o Certificado -->
+            <a href="certificado-ads.pdf" target="_blank" class="p-3.5 rounded-xl bg-surface-card border border-emeraldAccent-border hover:border-emeraldAccent transition-all flex items-center gap-3 group">
+              <i data-lucide="graduation-cap" class="text-emeraldAccent w-5 h-5 flex-shrink-0 group-hover:scale-110 transition-transform"></i>
               <div>
-                <span class="text-textLight-dim block text-[11px]">Formação</span>
-                <span class="text-white font-medium">Análise e Dev. de Sistemas</span>
+                <span class="text-textLight-dim block text-[11px]">Formação (Ver Diploma)</span>
+                <span class="text-white font-medium group-hover:text-emeraldAccent transition-colors">Análise e Dev. de Sistemas ↗</span>
               </div>
-            </div>
+            </a>
 
             <div class="p-3.5 rounded-xl bg-surface-card border border-emeraldAccent-border flex items-center gap-3">
               <i data-lucide="mail" class="text-emeraldAccent w-5 h-5 flex-shrink-0"></i>
@@ -180,7 +171,7 @@
               <i data-lucide="briefcase" class="text-emeraldAccent w-5 h-5 flex-shrink-0"></i>
               <div>
                 <span class="text-textLight-dim block text-[11px]">Atuação</span>
-                <span class="text-white font-medium">Sistemas, Web & Automação</span>
+                <span class="text-white font-medium">Sistemas, Web &amp; Automação</span>
               </div>
             </div>
           </div>
@@ -219,15 +210,15 @@
       <!-- Grid de Projetos -->
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         
-        <!-- Projeto Card 1 -->
+        <!-- Card Projeto 1 -->
         <div class="bg-surface-card border border-emeraldAccent-border rounded-2xl p-6 flex flex-col justify-between hover:border-emeraldAccent/50 transition-all duration-300 group">
           <div class="space-y-4">
             <div class="w-12 h-12 rounded-xl bg-surface-elevated border border-emeraldAccent-border flex items-center justify-center text-emeraldAccent group-hover:scale-110 transition-transform">
               <i data-lucide="layout-dashboard" class="w-6 h-6"></i>
             </div>
-            <h3 class="text-xl font-bold text-white group-hover:text-emeraldAccent transition-colors">Sistema de Gestão & Métricas</h3>
+            <h3 class="text-xl font-bold text-white group-hover:text-emeraldAccent transition-colors">Sistema de Gestão &amp; Métricas</h3>
             <p class="text-sm text-textLight-muted leading-relaxed">
-              Painel analítico para consolidação e visualização de dados financeiros e operacionais com gráficos interativos.
+              Painel analítico para consolidação e visualização de dados operacionais e financeiros com gráficos dinâmicos.
             </p>
             <div class="flex flex-wrap gap-2 pt-2">
               <span class="px-2.5 py-1 text-xs font-mono bg-surface-main border border-emeraldAccent-border rounded-md text-emeraldAccent">PostgreSQL</span>
@@ -246,15 +237,15 @@
           </div>
         </div>
 
-        <!-- Projeto Card 2 -->
+        <!-- Card Projeto 2 -->
         <div class="bg-surface-card border border-emeraldAccent-border rounded-2xl p-6 flex flex-col justify-between hover:border-emeraldAccent/50 transition-all duration-300 group">
           <div class="space-y-4">
             <div class="w-12 h-12 rounded-xl bg-surface-elevated border border-emeraldAccent-border flex items-center justify-center text-emeraldAccent group-hover:scale-110 transition-transform">
               <i data-lucide="bot" class="w-6 h-6"></i>
             </div>
-            <h3 class="text-xl font-bold text-white group-hover:text-emeraldAccent transition-colors">Orquestrador de APIs & Automação</h3>
+            <h3 class="text-xl font-bold text-white group-hover:text-emeraldAccent transition-colors">Orquestrador de APIs &amp; Automação</h3>
             <p class="text-sm text-textLight-muted leading-relaxed">
-              Automação de rotinas e integração de Webhooks para sincronização de cadastros e envio de alertas em tempo real.
+              Automação de rotinas em segundo plano e integração de Webhooks para sincronização de registros e alertas.
             </p>
             <div class="flex flex-wrap gap-2 pt-2">
               <span class="px-2.5 py-1 text-xs font-mono bg-surface-main border border-emeraldAccent-border rounded-md text-emeraldAccent">Node.js</span>
@@ -269,15 +260,15 @@
           </div>
         </div>
 
-        <!-- Projeto Card 3 -->
+        <!-- Card Projeto 3 -->
         <div class="bg-surface-card border border-emeraldAccent-border rounded-2xl p-6 flex flex-col justify-between hover:border-emeraldAccent/50 transition-all duration-300 group">
           <div class="space-y-4">
             <div class="w-12 h-12 rounded-xl bg-surface-elevated border border-emeraldAccent-border flex items-center justify-center text-emeraldAccent group-hover:scale-110 transition-transform">
               <i data-lucide="database" class="w-6 h-6"></i>
             </div>
-            <h3 class="text-xl font-bold text-white group-hover:text-emeraldAccent transition-colors">Modelagem & Otimização SQL</h3>
+            <h3 class="text-xl font-bold text-white group-hover:text-emeraldAccent transition-colors">Modelagem &amp; Otimização SQL</h3>
             <p class="text-sm text-textLight-muted leading-relaxed">
-              Estruturação relacional de bancos de dados, criação de triggers, procedures e refinamento de queries complexas.
+              Estruturação relacional de bancos de dados, criação de triggers, procedures e refinamento de consultas complexas.
             </p>
             <div class="flex flex-wrap gap-2 pt-2">
               <span class="px-2.5 py-1 text-xs font-mono bg-surface-main border border-emeraldAccent-border rounded-md text-emeraldAccent">SQL Relacional</span>
@@ -295,29 +286,64 @@
       </div>
     </section>
 
-    <!-- ================= SEÇÃO DE CERTIFICADOS COM CATEGORIAS ================= -->
+    <!-- ================= SEÇÃO DE CERTIFICADOS COM DESTAQUE DE ADS ================= -->
     <section id="certificados" class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Cabeçalho da Seção -->
       <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
         <div class="space-y-4">
           <div class="flex items-center gap-2 text-emeraldAccent font-mono text-sm">
             <i data-lucide="award" class="w-4 h-4"></i>
-            <span>FORMAÇÃO & CONQUISTAS</span>
+            <span>FORMAÇÃO &amp; CONQUISTAS</span>
           </div>
-          <h2 class="text-3xl sm:text-4xl font-bold text-white tracking-tight">Certificados & Credenciais</h2>
-          <p class="text-textLight-muted max-w-xl">Cursos e qualificações contínuas categorizadas por área de domínio técnico.</p>
+          <h2 class="text-3xl sm:text-4xl font-bold text-white tracking-tight">Certificados &amp; Credenciais</h2>
+          <p class="text-textLight-muted max-w-xl">Formação acadêmica superior e certificações técnicas contínuas por área de especialidade.</p>
         </div>
 
         <!-- Filtros por Categoria -->
         <div class="flex flex-wrap gap-2" id="certFilters">
           <button onclick="filterCerts('todos')" class="cert-btn active px-4 py-2 rounded-xl text-xs font-mono font-semibold transition-all bg-emeraldAccent text-surface-main" data-filter="todos">Todos</button>
           <button onclick="filterCerts('dados')" class="cert-btn px-4 py-2 rounded-xl text-xs font-mono font-semibold transition-all bg-surface-card border border-emeraldAccent-border text-textLight-muted hover:text-white" data-filter="dados">Bancos de Dados</button>
-          <button onclick="filterCerts('redes')" class="cert-btn px-4 py-2 rounded-xl text-xs font-mono font-semibold transition-all bg-surface-card border border-emeraldAccent-border text-textLight-muted hover:text-white" data-filter="redes">Redes & Infra</button>
-          <button onclick="filterCerts('sites')" class="cert-btn px-4 py-2 rounded-xl text-xs font-mono font-semibold transition-all bg-surface-card border border-emeraldAccent-border text-textLight-muted hover:text-white" data-filter="sites">Sites & Web</button>
+          <button onclick="filterCerts('redes')" class="cert-btn px-4 py-2 rounded-xl text-xs font-mono font-semibold transition-all bg-surface-card border border-emeraldAccent-border text-textLight-muted hover:text-white" data-filter="redes">Redes &amp; Infra</button>
+          <button onclick="filterCerts('sites')" class="cert-btn px-4 py-2 rounded-xl text-xs font-mono font-semibold transition-all bg-surface-card border border-emeraldAccent-border text-textLight-muted hover:text-white" data-filter="sites">Sites &amp; Web</button>
           <button onclick="filterCerts('outros')" class="cert-btn px-4 py-2 rounded-xl text-xs font-mono font-semibold transition-all bg-surface-card border border-emeraldAccent-border text-textLight-muted hover:text-white" data-filter="outros">Outros / Gestão</button>
         </div>
       </div>
 
-      <!-- Grid de Certificados -->
+      <!-- CARD DE DESTAQUE PRINCIPAL: FORMAÇÃO SUPERIOR ADS -->
+      <div class="mb-10 p-6 sm:p-8 rounded-3xl bg-gradient-to-r from-surface-card via-surface-elevated to-surface-card border-2 border-emeraldAccent/40 shadow-xl relative overflow-hidden group">
+        <div class="absolute -right-10 -bottom-10 w-48 h-48 bg-emeraldAccent/10 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 relative z-10">
+          <div class="flex items-start gap-4">
+            <div class="w-14 h-14 rounded-2xl bg-surface-main border border-emeraldAccent flex items-center justify-center text-emeraldAccent flex-shrink-0 shadow-lg shadow-emeraldAccent/20">
+              <i data-lucide="graduation-cap" class="w-7 h-7"></i>
+            </div>
+            <div class="space-y-1.5">
+              <div class="flex items-center gap-2">
+                <span class="px-2.5 py-0.5 rounded-full text-[11px] font-mono bg-emeraldAccent/20 text-emeraldAccent border border-emeraldAccent/40 font-semibold uppercase tracking-wider">
+                  Graduação Superior
+                </span>
+                <span class="text-xs font-mono text-textLight-dim">Diploma Oficial</span>
+              </div>
+              <h3 class="text-xl sm:text-2xl font-bold text-white tracking-tight">
+                Tecnólogo em Análise e Desenvolvimento de Sistemas
+              </h3>
+              <p class="text-sm text-textLight-muted max-w-2xl leading-relaxed">
+                Formação superior voltada a engenharia de software, modelagem relacional, arquitetura de sistemas, infraestrutura de redes e governança de dados.
+              </p>
+            </div>
+          </div>
+
+          <!-- Botão para abrir o Certificado de ADS -->
+          <a href="DIPLOMA ANALISE E DESENVOLVIMENTO DE SISTEMAS.pdf" target="_blank" class="w-full md:w-auto px-6 py-3 rounded-xl bg-emeraldAccent text-surface-main font-bold hover:bg-emeraldAccent-vibrant transition-all flex items-center justify-center gap-2 shadow-lg shadow-emeraldAccent/20 flex-shrink-0">
+            <i data-lucide="file-check-2" class="w-5 h-5"></i>
+            <span>Ver Diploma / Certificado</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Grid de Cursos e Certificados Complementares -->
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5" id="certsContainer">
 
         <!-- Item 1 - Dados -->
@@ -340,11 +366,11 @@
         <div class="cert-card bg-surface-card border border-emeraldAccent-border p-5 rounded-2xl flex flex-col justify-between hover:border-emeraldAccent/60 transition-all group" data-category="redes">
           <div class="space-y-3">
             <div class="flex items-center justify-between">
-              <span class="text-[11px] font-mono px-2.5 py-0.5 rounded bg-surface-main text-emeraldAccent border border-emeraldAccent-border">Redes & Infra</span>
+              <span class="text-[11px] font-mono px-2.5 py-0.5 rounded bg-surface-main text-emeraldAccent border border-emeraldAccent-border">Redes &amp; Infra</span>
               <span class="text-xs font-mono text-textLight-dim">2026</span>
             </div>
             <h4 class="text-base font-bold text-white group-hover:text-emeraldAccent transition-colors">Redes de Computadores e Protocolos TCP/IP</h4>
-            <p class="text-xs text-textLight-muted">Arquitetura de redes, endereçamento IPv4/IPv6, roteamento, DNS e sub-redes.</p>
+            <p class="text-xs text-textLight-muted">Arquitetura de redes, roteamento, IPv4/IPv6, sub-redes e DNS.</p>
             <p class="text-[11px] font-mono text-textLight-dim">Instituição: Gran Cursos / Especialização</p>
           </div>
           <a href="#" class="mt-4 pt-3 border-t border-surface-elevated text-xs font-mono text-emeraldAccent hover:underline flex items-center gap-1.5">
@@ -356,11 +382,11 @@
         <div class="cert-card bg-surface-card border border-emeraldAccent-border p-5 rounded-2xl flex flex-col justify-between hover:border-emeraldAccent/60 transition-all group" data-category="sites">
           <div class="space-y-3">
             <div class="flex items-center justify-between">
-              <span class="text-[11px] font-mono px-2.5 py-0.5 rounded bg-surface-main text-emeraldAccent border border-emeraldAccent-border">Sites & Web</span>
+              <span class="text-[11px] font-mono px-2.5 py-0.5 rounded bg-surface-main text-emeraldAccent border border-emeraldAccent-border">Sites &amp; Web</span>
               <span class="text-xs font-mono text-textLight-dim">2026</span>
             </div>
             <h4 class="text-base font-bold text-white group-hover:text-emeraldAccent transition-colors">Desenvolvimento Web Fullstack Moderno</h4>
-            <p class="text-xs text-textLight-muted">Construção de aplicações responsivas utilizando HTML5, CSS3, Tailwind e JS.</p>
+            <p class="text-xs text-textLight-muted">Aplicações responsivas completas utilizando HTML5, CSS3, Tailwind e JS.</p>
             <p class="text-[11px] font-mono text-textLight-dim">Instituição: Certificação Técnica</p>
           </div>
           <a href="#" class="mt-4 pt-3 border-t border-surface-elevated text-xs font-mono text-emeraldAccent hover:underline flex items-center gap-1.5">
@@ -372,11 +398,11 @@
         <div class="cert-card bg-surface-card border border-emeraldAccent-border p-5 rounded-2xl flex flex-col justify-between hover:border-emeraldAccent/60 transition-all group" data-category="redes">
           <div class="space-y-3">
             <div class="flex items-center justify-between">
-              <span class="text-[11px] font-mono px-2.5 py-0.5 rounded bg-surface-main text-emeraldAccent border border-emeraldAccent-border">Redes & Infra</span>
+              <span class="text-[11px] font-mono px-2.5 py-0.5 rounded bg-surface-main text-emeraldAccent border border-emeraldAccent-border">Redes &amp; Infra</span>
               <span class="text-xs font-mono text-textLight-dim">2026</span>
             </div>
-            <h4 class="text-base font-bold text-white group-hover:text-emeraldAccent transition-colors">Administração e Otimização de Sistemas Linux</h4>
-            <p class="text-xs text-textLight-muted">Gerenciamento de processos, automação em Bash, permissões e rede.</p>
+            <h4 class="text-base font-bold text-white group-hover:text-emeraldAccent transition-colors">Administração de Servidores Linux</h4>
+            <p class="text-xs text-textLight-muted">Gerenciamento de processos, scripts Bash, permissões e segurança.</p>
             <p class="text-[11px] font-mono text-textLight-dim">Instituição: Prática de Sistemas</p>
           </div>
           <a href="#" class="mt-4 pt-3 border-t border-surface-elevated text-xs font-mono text-emeraldAccent hover:underline flex items-center gap-1.5">
@@ -391,7 +417,7 @@
               <span class="text-[11px] font-mono px-2.5 py-0.5 rounded bg-surface-main text-emeraldAccent border border-emeraldAccent-border">Outros / Gestão</span>
               <span class="text-xs font-mono text-textLight-dim">2026</span>
             </div>
-            <h4 class="text-base font-bold text-white group-hover:text-emeraldAccent transition-colors">Fundamentos de Ciência da Computação (CS50)</h4>
+            <h4 class="text-base font-bold text-white group-hover:text-emeraldAccent transition-colors">Fundamentos de Ciência da Computação</h4>
             <p class="text-xs text-textLight-muted">Lógica algorítmica, estruturas de dados, gestão de memória e computação.</p>
             <p class="text-[11px] font-mono text-textLight-dim">Instituição: Harvard / edX</p>
           </div>
@@ -410,7 +436,7 @@
           <i data-lucide="cpu" class="w-4 h-4"></i>
           <span>STACK TÉCNICA</span>
         </div>
-        <h2 class="text-3xl sm:text-4xl font-bold text-white tracking-tight">Competências & Tecnologias</h2>
+        <h2 class="text-3xl sm:text-4xl font-bold text-white tracking-tight">Competências &amp; Tecnologias</h2>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -429,12 +455,12 @@
         <!-- Grupo 2: Redes & Sistemas -->
         <div class="bg-surface-card border border-emeraldAccent-border p-6 rounded-2xl space-y-4">
           <div class="text-emeraldAccent"><i data-lucide="network" class="w-7 h-7"></i></div>
-          <h3 class="text-lg font-bold text-white">Redes & Sistemas</h3>
+          <h3 class="text-lg font-bold text-white">Redes &amp; Sistemas</h3>
           <ul class="space-y-2 text-sm text-textLight-muted font-mono">
             <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-emeraldAccent"></span>Protocolos TCP/IP</li>
             <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-emeraldAccent"></span>Ambientes Linux</li>
-            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-emeraldAccent"></span>Configuração de Servidores</li>
-            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-emeraldAccent"></span>Segurança e Permissões</li>
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-emeraldAccent"></span>Configuração Servidores</li>
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-emeraldAccent"></span>Segurança e Portas</li>
           </ul>
         </div>
 
@@ -443,7 +469,7 @@
           <div class="text-emeraldAccent"><i data-lucide="code" class="w-7 h-7"></i></div>
           <h3 class="text-lg font-bold text-white">Desenvolvimento Web</h3>
           <ul class="space-y-2 text-sm text-textLight-muted font-mono">
-            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-emeraldAccent"></span>HTML5 & CSS3 Moderno</li>
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-emeraldAccent"></span>HTML5 &amp; CSS3 Moderno</li>
             <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-emeraldAccent"></span>JavaScript (ES6+)</li>
             <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-emeraldAccent"></span>Tailwind CSS</li>
             <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-emeraldAccent"></span>APIs RESTful</li>
@@ -453,11 +479,11 @@
         <!-- Grupo 4: Automação & Ferramentas -->
         <div class="bg-surface-card border border-emeraldAccent-border p-6 rounded-2xl space-y-4">
           <div class="text-emeraldAccent"><i data-lucide="workflow" class="w-7 h-7"></i></div>
-          <h3 class="text-lg font-bold text-white">Automação & Ferramentas</h3>
+          <h3 class="text-lg font-bold text-white">Automação &amp; Ferramentas</h3>
           <ul class="space-y-2 text-sm text-textLight-muted font-mono">
-            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-emeraldAccent"></span>Git & GitHub</li>
-            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-emeraldAccent"></span>n8n & Webhooks</li>
-            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-emeraldAccent"></span>VS Code & DevTools</li>
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-emeraldAccent"></span>Git &amp; GitHub</li>
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-emeraldAccent"></span>n8n &amp; Webhooks</li>
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-emeraldAccent"></span>VS Code &amp; DevTools</li>
             <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-emeraldAccent"></span>Scripts de Automação</li>
           </ul>
         </div>
@@ -492,27 +518,26 @@
   <footer class="border-t border-surface-card py-8 text-center text-xs font-mono text-textLight-dim">
     <div class="max-w-6xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4">
       <p>© 2026 Getúlio Silva Maciel. Todos os direitos reservados.</p>
-      <p class="text-emeraldAccent">Construído com Tailwind CSS & GitHub Pages</p>
+      <p class="text-emeraldAccent">Construído com Tailwind CSS &amp; GitHub Pages</p>
     </div>
   </footer>
 
-  <!-- Lucide Script init -->
+  <!-- Scripts -->
   <script>
     lucide.createIcons();
 
-    // Mobile menu toggle
+    // Menu Mobile
     const mobileMenuBtn = document.getElementById('mobileMenuBtn');
     const mobileMenu = document.getElementById('mobileMenu');
     mobileMenuBtn.addEventListener('click', () => {
       mobileMenu.classList.toggle('hidden');
     });
 
-    // Filtro de Certificados por Categoria
+    // Filtros de Certificados
     function filterCerts(category) {
       const cards = document.querySelectorAll('.cert-card');
       const buttons = document.querySelectorAll('.cert-btn');
 
-      // Atualiza estilo dos botões
       buttons.forEach(btn => {
         if (btn.getAttribute('data-filter') === category) {
           btn.className = "cert-btn active px-4 py-2 rounded-xl text-xs font-mono font-semibold transition-all bg-emeraldAccent text-surface-main";
@@ -521,7 +546,6 @@
         }
       });
 
-      // Filtra os cards
       cards.forEach(card => {
         if (category === 'todos' || card.getAttribute('data-category') === category) {
           card.style.display = 'flex';
